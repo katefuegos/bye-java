@@ -14,8 +14,3 @@ before_install:
 jdk:
   - oraclejdk9
   - openjdk8
-
-deploy:
-  provider: heroku
-  api_key: ...
-  run: "java -jar mijar-1.0.0.jar"
