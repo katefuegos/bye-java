@@ -1,0 +1,21 @@
+notifications:
+  email:
+    on_success: always # default: always
+    on_failure: always # default: always
+  recipients:
+    - one@example.com
+
+language: java
+
+before_install:
+ - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+ - mvn test -B
+
+jdk:
+  - oraclejdk9
+  - openjdk8
+
+deploy:
+  provider: heroku
+  api_key: ...
+  run: "java -jar mijar-1.0.0.jar"
